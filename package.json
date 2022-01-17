@@ -1,0 +1,11 @@
+{
+  "name": "tetris.js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "tetris.js"
+  },
+  "repository": "git@github.com:DeepCFoxXx/Tetris.js.git",
+  "author": "author",
+  "license": "MIT"
+}

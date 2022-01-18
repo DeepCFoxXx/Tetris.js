@@ -16,8 +16,26 @@ function collide() {
   // Will take a game and player
 }
 
+function createMatrix(w, h) {
+  const matrix = [];
+  while (h--) {
+    matrix.push(new Array(w).fill(0));
+  }
+  return matrix;
+}
+
 function draw() {
   drawMatrix(player.matrix, player.pos);
+}
+
+function merge(arena, player) {
+  player.matrix.forEach((row, y) => {
+    row.forEach((value, x) => {
+      if (value !== 0) {
+        arena[y + player.pos.y][x + player.pos.x] = value;
+      }
+    });
+  });
 }
 
 function drawMatrix(matrix, offset) {
@@ -35,6 +53,15 @@ function playerRotate(dir) {
   // Take the current position and ++
   // Need to add a collide function
 }
+
+function playerDrop() {
+  player.pos.y++;
+  dropCounter = 0;
+}
+
+function playerMove(offset) {}
+
+function playerReset() {}
 
 let dropCounter = 0;
 let dropInterval = 1000;
@@ -67,6 +94,8 @@ document.addEventListener('keydown', (event) => {
     playerRotate(1);
   }
 });
+
+const arena = createMatrix(12, 20);
 
 const player = {
   pos: { x: 5, y: 5 },
